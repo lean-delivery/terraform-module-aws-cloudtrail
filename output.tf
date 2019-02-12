@@ -19,11 +19,11 @@ output "cloudwatch_log_group_name" {
 }
 
 output "cloudtrail_name" {
-  value       = "${element(concat(aws_cloudtrail.s3.*.id, aws_cloudtrail.s3-cloudwatch.*.id), 0)}"
+  value       = "${element(concat(aws_cloudtrail.s3.*.id, aws_cloudtrail.s3-cloudwatch.*.id, list("")), 0)}"
   description = "Name of CloudTrail"
 }
 
 output "cloudtrail_arn" {
-  value       = "${element(concat(aws_cloudtrail.s3.*.arn, aws_cloudtrail.s3-cloudwatch.*.arn), 0)}"
+  value       = "${element(concat(aws_cloudtrail.s3.*.arn, aws_cloudtrail.s3-cloudwatch.*.arn, list("")), 0)}"
   description = "ARN of CloudTrail"
 }
